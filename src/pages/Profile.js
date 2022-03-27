@@ -11,7 +11,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { toast } from 'react-toastify'
 // import ListingItem from '../components/ListingItem'
 import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
@@ -34,22 +34,20 @@ function Profile() {
   const onSubmit = async () => {
     try {
       if (auth.currentUser.displayName !== name) {
-
         // update  display  name in  firebase
-        await updateProfile(auth.currentUser,{
-          displayName :name
+        await updateProfile(auth.currentUser, {
+          displayName: name,
         });
 
         // update fire base here
 
-        const userRef = doc(db,'users', auth.currentUser.uid)
-        await updateDoc(userRef,{
-          name
-        })
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(userRef, {
+          name,
+        });
       }
-
     } catch (error) {
-      toast.error("please try another name")
+      toast.error("please try another name");
     }
   };
   const onChange = (e) => {
@@ -99,6 +97,11 @@ function Profile() {
             />
           </form>
         </div>
+        <Link to="/listing" className="createListing">
+          <img src={homeIcon} alt="home" />
+          <p>Sell or rent your home</p>
+          <img src={arrowRight} alt="arrow right" />
+        </Link>
       </main>
     </div>
   );

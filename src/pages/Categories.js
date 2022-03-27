@@ -39,6 +39,7 @@ function Categories() {
 
         const listings = [];
         querySnap.forEach((doc) => {
+          console.log(doc)
           return listings.push({
             id: doc.id,
             data: doc.data(),

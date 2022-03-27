@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import VirtualRoute from "./components/VirtualRoute";
 import Categories from "./pages/Categories";
+import Listing from "./pages/Listing";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgetPassword />} />
+          <Route path='/listing' element={<Listing />}/>
         </Routes>
         <NavBar />
       </Router>
