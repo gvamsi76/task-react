@@ -22,11 +22,12 @@ function Test() {
         setParsedData(results.data)
         setTableRows(rowsArray[0]);
         setValues(valuesArray);
-       //console.log(results.data);
+       console.log(results.data);
        })
       },
     });
   };
+
   return (
     <div className='App'>
       <input
